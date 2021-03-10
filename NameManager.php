@@ -105,9 +105,13 @@ class NameManager
         Or it might be one of them.
         It might also be that one of them is already in the file
         */
+
         if ($nameSaved && $adjectiveSaved) {
             $response['msg'] =  'Thanks!';
             $response['status'] =  1;
+        } elseif ($adjectiveTooLong && $nameTooLong) {
+            $response['msg'] =  'Sorry, both name and adjective are too long! Enter shorter ones';
+            $response['status'] =  0;
         } elseif ($nameSaved) {
             if ($adjectiveAlreadyThere){
                 $response['msg'] =  'Saved the name, thanks! but the adjective is already there';
